@@ -11,6 +11,9 @@ public class StudentsGroup{
     public StudentsGroup() {
         this.groupMembers.clear();
     } // Если создали пустую группу
+    public StudentsGroup(StudentsGroup group ) {
+        this.groupMembers.addAll(group.getMembers());
+    } // Если создали пустую группу
 
     public StudentsGroup(List<User> groupList) {
         SetMembers(groupList);
@@ -34,7 +37,7 @@ public class StudentsGroup{
         this.groupMembers.clear();
         this.groupMembers.addAll(studentsList);
     }
-
+    public Integer getSizeOfGroup() { return groupMembers.size(); }
     public Teacher getTeacher() {  // Выдаем, кто у нас учитель
         User teacher = null;
         for(User u: this.groupMembers) {
