@@ -5,17 +5,16 @@ import java.util.Iterator;
 import java.util.List;
 
 public class StudentsGroupsStream implements Iterator<StudentsGroup> {
-    private int index;
+    // Класс - поток для студенческих групп - тренируесмя работать с итераторами
+    private int index;  // Указатель на текущую запись
     protected List<StudentsGroup> studentsGroups = new ArrayList<StudentsGroup>();
 
     public StudentsGroupsStream(List<StudentsGroup> groupList) {
-        this.studentsGroups.clear();
         this.index = 0;
         this.studentsGroups.addAll(groupList);
     }
 
     public StudentsGroupsStream() {
-        this.studentsGroups.clear();
         this.index = 0;
     }
 
@@ -32,12 +31,13 @@ public class StudentsGroupsStream implements Iterator<StudentsGroup> {
     public int size() { return this.studentsGroups.size(); }
 
     @Override
-    public boolean hasNext() {
-        return (this.index < this.studentsGroups.size()) ? true : false;
+    public boolean hasNext() {  // Обработка метода итератора
+        return this.index < this.studentsGroups.size();
     }
 
     @Override
-    public StudentsGroup next() {
+    public StudentsGroup next() { // Обработка метода итератора
         return this.studentsGroups.get(this.index++);
     }
+
 }

@@ -1,15 +1,11 @@
 package data;
 
-import java.util.List;
+import java.util.Comparator;
 
-public class StreamComparator {
-    StudentsGroup studentGroup = new StudentsGroup();
-
-    public StreamComparator(StudentsGroup group) {
-        this.studentGroup = group;
-    }
-    public boolean CompareLarger(StudentsGroup anotherGroup, boolean asc) {
-        return (asc) ? this.studentGroup.getSizeOfGroup() > this.studentGroup.getSizeOfGroup() :
-                this.studentGroup.getSizeOfGroup() < this.studentGroup.getSizeOfGroup();
+public class StreamComparator implements Comparator<StudentsGroup>{
+    // Сравнение 2-х групп по количеству членов в них
+    @Override
+    public int compare(StudentsGroup aGroup, StudentsGroup bGroup) {
+        return Integer.compare(aGroup.getSizeOfGroup(),bGroup.getSizeOfGroup());
     }
 }

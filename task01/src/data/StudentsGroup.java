@@ -4,7 +4,7 @@ package data;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentsGroup{
+public class StudentsGroup implements Comparable<StudentsGroup>{
     // Тут список членов группы. Среди них может быть учитель
     private List<User> groupMembers = new ArrayList<User>();
 
@@ -62,5 +62,9 @@ public class StudentsGroup{
     public List<User> getMembers() {
         return this.groupMembers;
     }  // Выдаем вообще всех
-
+    @Override
+    public int compareTo(StudentsGroup anotherGroup) {  //Метод сравнения двух групп для сортировки
+                                                        // Сравниваем по количеству членов в группе
+        return Integer.compare(this.getSizeOfGroup(),anotherGroup.getSizeOfGroup());
+    }
 }

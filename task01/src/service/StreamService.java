@@ -1,22 +1,19 @@
 package service;
 
 import data.StudentsGroup;
-import data.StreamComparator;
 import data.StudentsGroupsStream;
+import data.StreamComparator;
 
-import java.util.Collections;
 import java.util.List;
-
+// Класс для расширения функционала потока групп студентов
 public class StreamService extends StudentsGroupsStream{
-    StreamService(){
+    public StreamService(){
         super();
     }
-    StreamService(List<StudentsGroup> groupList){
+    public StreamService(List<StudentsGroup> groupList){
         super(groupList);
     }
-
-    public void sort(boolean acs) {
-        //Collections.sort(this.studentsGroups);
-
+    public void mySort() {  // сортировка членов группы студентов
+        this.studentsGroups.sort(new StreamComparator());
     }
 }
